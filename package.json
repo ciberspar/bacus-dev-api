@@ -1,14 +1,14 @@
-
 {
   "name": "bacus-dev",
-  "version": "0.1.0",
+  "version": "0.1.0-rc1.2",
   "private": true,
   "description": "Independent infrastructure platform",
   "type": "module",
   "scripts": {
-    "start": "node foundation/core/server.js"
+    "start": "node foundation/core/server.js",
+    "dev": "node --watch foundation/core/server.js"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=20"
   }
 }
