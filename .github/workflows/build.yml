@@ -56,10 +56,20 @@ jobs:
             ${{ matrix.flags }} \
             -Iinclude \
             foundation/core/main.c \
+            foundation/core/diagnostics.c \
+            foundation/config/config.c \
+            foundation/log/log.c \
             -o build/bacus-core-${{ matrix.target }}
 
       - name: Inspect executable
         run: file build/bacus-core-${{ matrix.target }}
+
+      - name: Native smoke test
+        if: matrix.target == 'linux-x86_64'
+        run: |
+          ./build/bacus-core-linux-x86_64 --version
+          ./build/bacus-core-linux-x86_64 --help
+          ./build/bacus-core-linux-x86_64 --diagnostics
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
