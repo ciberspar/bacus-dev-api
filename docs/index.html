@@ -4,345 +4,334 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101b20">
-  <meta name="description" content="Bacus Console - Control Center">
+  <meta name="description" content="Bacus Console - Developer Control Center">
   <title>Bacus Console</title>
   <link rel="stylesheet" href="assets/console.css">
   <script src="assets/console.js" defer></script>
 </head>
 <body>
-  <div class="app">
-    <aside class="sidebar" id="sidebar">
-      <a class="brand" href="#overview">
-        <span class="brand-mark">🐢</span>
-        <span>Bacus <b>Console</b></span>
-      </a>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#overview">
+      <span class="brand-mark">🐢</span>
+      <span>Bacus <b>Console</b></span>
+    </a>
 
-      <div class="workspace">
-        <span class="workspace-icon">B</span>
-        <span>
-          <strong>My Bacus</strong>
-          <small>Workspace personal</small>
-        </span>
+    <div class="workspace">
+      <span class="workspace-icon">B</span>
+      <span><strong>My Bacus</strong><small>Personal workspace</small></span>
+    </div>
+
+    <nav aria-label="Navegación">
+      <p class="nav-label">WORKSPACE</p>
+      <a class="nav-link active" href="#overview" data-page="overview">◫ Overview</a>
+      <a class="nav-link" href="#monitor" data-page="monitor">◉ Monitor</a>
+      <a class="nav-link" href="#explorer" data-page="explorer">⌘ API Playground</a>
+
+      <p class="nav-label">DEVELOPER TOOLS</p>
+      <a class="nav-link" href="#json" data-page="json">{ } JSON Studio</a>
+      <a class="nav-link" href="#designer" data-page="designer">◇ API Designer</a>
+      <a class="nav-link" href="#logs" data-page="logs">≡ Log Explorer</a>
+      <a class="nav-link" href="#webhooks" data-page="webhooks">↗ Webhook Lab</a>
+      <a class="nav-link" href="#data" data-page="data">▦ Data Explorer</a>
+
+      <p class="nav-label">INFRASTRUCTURE</p>
+      <a class="nav-link" href="#network" data-page="network">⌁ Network Inspector</a>
+      <a class="nav-link" href="#memory" data-page="memory">▥ Memory Monitor</a>
+      <a class="nav-link" href="#config" data-page="config">⚙ Config Studio</a>
+
+      <p class="nav-label">PLATFORM</p>
+      <a class="nav-link" href="#projects" data-page="projects">▣ Projects</a>
+      <a class="nav-link" href="#keys" data-page="keys">⚿ API Keys</a>
+      <a class="nav-link" href="#settings" data-page="settings">⚙ Settings</a>
+      <a class="nav-link" href="#documentation" data-page="documentation">▤ Documentation</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <span class="connection-dot" id="sidebar-dot"></span>
+      <span id="sidebar-status">API sin configurar</span>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-button" id="menu-button" aria-label="Abrir menú">☰</button>
+      <div>
+        <span class="breadcrumb">Bacus Dev /</span>
+        <strong id="page-heading">Overview</strong>
       </div>
+      <span class="release">0.1-RC1.2</span>
+    </header>
 
-      <nav aria-label="Navegación principal">
-        <p class="nav-label">WORKSPACE</p>
-        <a class="nav-link active" href="#overview" data-page="overview">
-          <span>◫</span> Overview
-        </a>
-        <a class="nav-link" href="#monitor" data-page="monitor">
-          <span>◉</span> Monitor
-        </a>
-        <a class="nav-link" href="#explorer" data-page="explorer">
-          <span>⌘</span> API Explorer
-        </a>
+    <div class="content">
 
-        <p class="nav-label">DEVELOPMENT</p>
-        <a class="nav-link" href="#projects" data-page="projects">
-          <span>▦</span> Projects
-        </a>
-        <a class="nav-link" href="#keys" data-page="keys">
-          <span>⚿</span> API Keys
-        </a>
-        <a class="nav-link" href="#analytics" data-page="analytics">
-          <span>▥</span> Analytics
-        </a>
-        <a class="nav-link" href="#logs" data-page="logs">
-          <span>≡</span> Request Logs
-        </a>
-
-        <p class="nav-label">SYSTEM</p>
-        <a class="nav-link" href="#services" data-page="services">
-          <span>◇</span> Services
-        </a>
-        <a class="nav-link" href="#settings" data-page="settings">
-          <span>⚙</span> Settings
-        </a>
-        <a class="nav-link" href="#documentation" data-page="documentation">
-          <span>▤</span> Documentation
-        </a>
-      </nav>
-
-      <div class="sidebar-bottom">
-        <span class="connection-dot" id="sidebar-dot"></span>
-        <span id="sidebar-status">API sin configurar</span>
-      </div>
-    </aside>
-
-    <main class="main">
-      <header class="topbar">
-        <button class="menu-button" id="menu-button" aria-label="Abrir menú">
-          ☰
-        </button>
-        <div>
-          <span class="breadcrumb">Bacus Dev /</span>
-          <strong id="page-heading">Overview</strong>
+      <!-- OVERVIEW -->
+      <section class="page active" id="page-overview">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">CONTROL CENTER</p>
+            <h1>Overview</h1>
+            <p class="muted">Tu infraestructura Bacus en un solo lugar.</p>
+          </div>
+          <button class="button primary" id="refresh-button">↻ Actualizar</button>
         </div>
-        <span class="release">0.1-RC1.2</span>
-      </header>
 
-      <div class="content">
-
-        <section class="page active" id="page-overview">
-          <div class="page-heading">
-            <div>
-              <p class="eyebrow">CONTROL CENTER</p>
-              <h1>Overview</h1>
-              <p class="muted">Toda tu infraestructura Bacus, en un solo lugar.</p>
-            </div>
-            <button class="button primary" id="refresh-button">
-              ↻ Actualizar
-            </button>
+        <div class="banner">
+          <div>
+            <span class="eyebrow">BACUS DEV API</span>
+            <h2 id="overview-status">Sin configurar</h2>
+            <p id="overview-detail">Configurá la dirección de tu API.</p>
           </div>
+          <span class="big-status" id="overview-indicator">●</span>
+        </div>
 
-          <div class="banner">
-            <div>
-              <span class="eyebrow">BACUS DEV API</span>
-              <h2 id="overview-status">Sin configurar</h2>
-              <p id="overview-detail">Configurá la dirección de tu API para comenzar.</p>
-            </div>
-            <span class="big-status" id="overview-indicator">●</span>
-          </div>
+        <div class="stat-grid">
+          <article class="stat-card"><span class="muted">Versión</span><strong id="overview-version">—</strong><small>Detectada por API</small></article>
+          <article class="stat-card"><span class="muted">Uptime</span><strong id="overview-uptime">—</strong><small>Tiempo activo</small></article>
+          <article class="stat-card"><span class="muted">Memoria RSS</span><strong id="overview-memory">—</strong><small>Proceso del servidor</small></article>
+          <article class="stat-card"><span class="muted">Build</span><strong id="overview-build">—</strong><small>Identificador</small></article>
+        </div>
 
-          <div class="stat-grid">
-            <article class="stat-card">
-              <span class="muted">Versión</span>
-              <strong id="overview-version">—</strong>
-              <small>Versión detectada</small>
-            </article>
-            <article class="stat-card">
-              <span class="muted">Uptime</span>
-              <strong id="overview-uptime">—</strong>
-              <small>Tiempo activo</small>
-            </article>
-            <article class="stat-card">
-              <span class="muted">Memoria RSS</span>
-              <strong id="overview-memory">—</strong>
-              <small>Proceso del servidor</small>
-            </article>
-            <article class="stat-card">
-              <span class="muted">Build</span>
-              <strong id="overview-build">—</strong>
-              <small>Identificador</small>
-            </article>
-          </div>
-
-          <div class="two-columns">
-            <article class="panel">
-              <div class="panel-heading">
-                <h3>API Connection</h3>
-                <span class="tag">CONFIGURATION</span>
-              </div>
-              <label for="api-url">URL pública de Bacus Dev API</label>
-              <input id="api-url" type="url"
-                placeholder="https://api.ejemplo.com">
-              <p class="help">
-                No uses localhost si la API está en otro dispositivo.
-              </p>
-              <button class="button primary" id="save-url">
-                Guardar dirección
-              </button>
-            </article>
-
-            <article class="panel">
-              <div class="panel-heading">
-                <h3>Quick links</h3>
-              </div>
-              <a class="quick-link" href="#monitor">◉ Ver monitor <span>→</span></a>
-              <a class="quick-link" href="#explorer">⌘ Probar API <span>→</span></a>
-              <a class="quick-link" href="#documentation">▤ Documentación <span>→</span></a>
-            </article>
-          </div>
-        </section>
-
-        <section class="page" id="page-monitor">
-          <div class="page-heading">
-            <div>
-              <p class="eyebrow">INFRASTRUCTURE</p>
-              <h1>Monitor</h1>
-              <p class="muted">Estado y recursos del servidor.</p>
-            </div>
-          </div>
+        <div class="two-columns">
           <article class="panel">
-            <span class="muted">Estado del servicio</span>
-            <h2 id="monitor-status">Sin configurar</h2>
-            <p id="monitor-detail">Esperando configuración.</p>
-            <div class="divider"></div>
-            <p>Última comprobación: <strong id="last-check">Nunca</strong></p>
-            <button class="button primary" id="monitor-refresh">Comprobar ahora</button>
+            <h3>API Connection</h3>
+            <label for="api-url">URL de Bacus Dev API</label>
+            <input id="api-url" type="url" placeholder="https://api.ejemplo.com">
+            <p class="help">Usá la URL pública del servidor, no localhost.</p>
+            <button class="button primary" id="save-url">Guardar dirección</button>
           </article>
-          <div class="stat-grid">
-            <article class="stat-card">
-              <span class="muted">Memoria RSS</span>
-              <strong id="monitor-memory">—</strong>
-            </article>
-            <article class="stat-card">
-              <span class="muted">Tiempo activo</span>
-              <strong id="monitor-uptime">—</strong>
-            </article>
-          </div>
-        </section>
-
-        <section class="page" id="page-explorer">
-          <div class="page-heading">
-            <div>
-              <p class="eyebrow">DEVELOPMENT TOOLS</p>
-              <h1>API Explorer</h1>
-              <p class="muted">Probá los endpoints de tu instancia.</p>
-            </div>
-          </div>
           <article class="panel">
-            <label for="request-method">Método</label>
-            <select id="request-method">
-              <option value="GET">GET</option>
-            </select>
-            <label for="request-path">Endpoint</label>
-            <input id="request-path" type="text" value="/health">
-            <button class="button primary" id="send-request">Enviar petición</button>
-            <div class="response-heading">
-              <strong>Response</strong>
-              <span id="response-status">Sin respuesta</span>
-            </div>
-            <pre id="response-output">Las respuestas aparecerán aquí.</pre>
+            <h3>Quick links</h3>
+            <a class="quick-link" href="#explorer">API Playground <span>→</span></a>
+            <a class="quick-link" href="#json">JSON Studio <span>→</span></a>
+            <a class="quick-link" href="#network">Network Inspector <span>→</span></a>
+            <a class="quick-link" href="#memory">Memory Monitor <span>→</span></a>
           </article>
-        </section>
+        </div>
+      </section>
 
-        <section class="page" id="page-projects">
-          <div class="page-heading">
+      <!-- MONITOR -->
+      <section class="page" id="page-monitor">
+        <div class="page-heading"><div><p class="eyebrow">INFRASTRUCTURE</p><h1>Monitor</h1><p class="muted">Estado de Bacus Dev API.</p></div></div>
+        <article class="panel">
+          <h2 id="monitor-status">Sin configurar</h2>
+          <p id="monitor-detail" class="muted">Esperando conexión.</p>
+          <p class="help">Última comprobación: <span id="last-check">Nunca</span></p>
+          <button class="button primary" id="monitor-refresh">Comprobar ahora</button>
+        </article>
+      </section>
+
+      <!-- API PLAYGROUND -->
+      <section class="page" id="page-explorer">
+        <div class="page-heading"><div><p class="eyebrow">DEVELOPER TOOLS</p><h1>API Playground</h1><p class="muted">Construí y enviá solicitudes HTTP.</p></div></div>
+        <article class="panel">
+          <div class="form-grid">
             <div>
-              <p class="eyebrow">DEVELOPMENT</p>
-              <h1>Projects</h1>
-              <p class="muted">Espacio para tus proyectos de API.</p>
+              <label for="request-method">Método</label>
+              <select id="request-method">
+                <option>GET</option><option>POST</option><option>PUT</option>
+                <option>PATCH</option><option>DELETE</option>
+              </select>
+            </div>
+            <div>
+              <label for="request-path">Endpoint</label>
+              <input id="request-path" value="/health" placeholder="/api/v1/info">
             </div>
           </div>
-          <article class="panel">
-            <span class="tag">PLANNED</span>
-            <h3>Gestión de proyectos</h3>
-            <p class="muted">
-              La creación y administración de proyectos multiusuario
-              requiere el backend de Bacus Projects y autenticación.
-            </p>
-          </article>
-        </section>
+          <label for="request-headers">Headers JSON</label>
+          <textarea id="request-headers" rows="4">{
+  "Accept": "application/json"
+}</textarea>
+          <label for="request-body">Body JSON (opcional)</label>
+          <textarea id="request-body" rows="5" placeholder='{"message":"Hola Bacus"}'></textarea>
+          <button class="button primary" id="send-request">Enviar petición</button>
+          <div class="response-heading"><strong>Response</strong><span id="response-status">Sin respuesta</span></div>
+          <pre id="response-output">La respuesta aparecerá aquí.</pre>
+        </article>
+        <p class="notice">El servidor inicial de Bacus Dev solo tiene implementadas rutas GET. Los demás métodos requieren rutas backend adicionales.</p>
+      </section>
 
-        <section class="page" id="page-keys">
-          <div class="page-heading">
-            <div>
-              <p class="eyebrow">SECURITY</p>
-              <h1>API Keys</h1>
-              <p class="muted">Administración segura de credenciales.</p>
-            </div>
+      <!-- JSON STUDIO -->
+      <section class="page" id="page-json">
+        <div class="page-heading"><div><p class="eyebrow">DATA TOOLS</p><h1>JSON Studio</h1><p class="muted">Formateá, validá y compará documentos JSON.</p></div></div>
+        <article class="panel">
+          <label for="json-input">JSON de entrada</label>
+          <textarea id="json-input" rows="12" spellcheck="false">{
+  "name": "Bacus Dev",
+  "version": "0.1-RC1.2",
+  "status": "development"
+}</textarea>
+          <div class="button-row">
+            <button class="button primary" id="json-format">Formatear</button>
+            <button class="button secondary" id="json-minify">Minificar</button>
+            <button class="button secondary" id="json-validate">Validar</button>
+            <button class="button secondary" id="json-copy">Copiar</button>
           </div>
-          <article class="panel">
-            <span class="tag">PLANNED</span>
-            <h3>API Key Management</h3>
-            <p class="muted">
-              La creación, revocación y validación de claves se realizará
-              exclusivamente en el servidor. Esta interfaz todavía no
-              almacena ni genera claves.
-            </p>
-          </article>
-        </section>
+          <p id="json-result" class="result-line">Editor local listo.</p>
+          <label for="json-compare-a">Comparar: documento A</label>
+          <textarea id="json-compare-a" rows="5" placeholder='{"a":1}'></textarea>
+          <label for="json-compare-b">Comparar: documento B</label>
+          <textarea id="json-compare-b" rows="5" placeholder='{"a":2}'></textarea>
+          <button class="button secondary" id="json-compare">Comparar JSON</button>
+          <pre id="json-diff">El resultado de la comparación aparecerá aquí.</pre>
+        </article>
+      </section>
 
-        <section class="page" id="page-analytics">
-          <div class="page-heading">
-            <div>
-              <p class="eyebrow">OBSERVABILITY</p>
-              <h1>Analytics</h1>
-              <p class="muted">Estadísticas de uso de la API.</p>
-            </div>
+      <!-- API DESIGNER -->
+      <section class="page" id="page-designer">
+        <div class="page-heading"><div><p class="eyebrow">API DESIGN</p><h1>API Designer</h1><p class="muted">Diseñá rutas y generá una especificación OpenAPI.</p></div></div>
+        <article class="panel">
+          <div class="form-grid">
+            <div><label for="design-method">Método</label><select id="design-method"><option>GET</option><option>POST</option><option>PUT</option><option>PATCH</option><option>DELETE</option></select></div>
+            <div><label for="design-path">Ruta</label><input id="design-path" value="/api/v1/example"></div>
           </div>
-          <article class="panel">
-            <span class="tag">PLANNED</span>
-            <h3>API Analytics</h3>
-            <p class="muted">
-              Preparado para métricas de solicitudes, latencia y errores.
-              Todavía no hay almacenamiento histórico.
-            </p>
-          </article>
-        </section>
-
-        <section class="page" id="page-logs">
-          <div class="page-heading">
-            <div>
-              <p class="eyebrow">OBSERVABILITY</p>
-              <h1>Request Logs</h1>
-              <p class="muted">Historial de solicitudes.</p>
-            </div>
+          <label for="design-summary">Descripción</label>
+          <input id="design-summary" placeholder="Describe qué hace este endpoint">
+          <label for="design-response">Ejemplo de respuesta JSON</label>
+          <textarea id="design-response" rows="5">{
+  "status": "success"
+}</textarea>
+          <div class="button-row">
+            <button class="button primary" id="design-add">Añadir endpoint</button>
+            <button class="button secondary" id="design-export">Exportar OpenAPI</button>
           </div>
-          <article class="panel">
-            <span class="tag">PLANNED</span>
-            <h3>Request logging</h3>
-            <p class="muted">
-              Los registros se conectarán al sistema de logs del backend.
-              No se inventan registros de actividad.
-            </p>
-          </article>
-        </section>
+          <div id="design-list" class="endpoint-list"></div>
+          <p class="help">El diseñador crea una especificación local. No instala rutas en el servidor.</p>
+        </article>
+      </section>
 
-        <section class="page" id="page-services">
-          <div class="page-heading">
-            <div>
-              <p class="eyebrow">SYSTEM</p>
-              <h1>Services</h1>
-              <p class="muted">Módulos de Bacus Dev.</p>
-            </div>
+      <!-- LOG EXPLORER -->
+      <section class="page" id="page-logs">
+        <div class="page-heading"><div><p class="eyebrow">OBSERVABILITY</p><h1>Log Explorer</h1><p class="muted">Consultá los registros de tu servidor.</p></div></div>
+        <article class="panel">
+          <p class="notice">Se necesita implementar un endpoint administrativo de logs en el backend. Esta herramienta no inventará registros.</p>
+          <button class="button primary" id="load-logs">Consultar /api/v1/logs</button>
+          <pre id="logs-output">Todavía no se consultaron registros.</pre>
+        </article>
+      </section>
+
+      <!-- WEBHOOK LAB -->
+      <section class="page" id="page-webhooks">
+        <div class="page-heading"><div><p class="eyebrow">INTEGRATIONS</p><h1>Webhook Lab</h1><p class="muted">Prepará y probá solicitudes webhook.</p></div></div>
+        <article class="panel">
+          <label for="webhook-url">URL de destino</label>
+          <input id="webhook-url" type="url" placeholder="https://servicio.example/webhook">
+          <label for="webhook-secret">Token opcional</label>
+          <input id="webhook-secret" type="password" autocomplete="off" placeholder="No se guarda">
+          <label for="webhook-payload">Payload JSON</label>
+          <textarea id="webhook-payload" rows="7">{
+  "event": "bacus.test",
+  "message": "Hello from Bacus Console"
+}</textarea>
+          <button class="button primary" id="send-webhook">Enviar webhook de prueba</button>
+          <p class="notice">Solo enviá pruebas a servicios propios o donde tengas autorización. El navegador puede bloquear destinos que no permitan CORS.</p>
+          <pre id="webhook-output">Esperando una prueba.</pre>
+        </article>
+      </section>
+
+      <!-- DATA EXPLORER -->
+      <section class="page" id="page-data">
+        <div class="page-heading"><div><p class="eyebrow">DATA MANAGEMENT</p><h1>Data Explorer</h1><p class="muted">Explorá datos JSON y prepará colecciones.</p></div></div>
+        <article class="panel">
+          <span class="tag">LOCAL JSON EXPLORER</span>
+          <label for="data-input">Pegá un documento JSON</label>
+          <textarea id="data-input" rows="10" placeholder='{"users":[{"name":"Example"}]}'></textarea>
+          <button class="button primary" id="data-inspect">Inspeccionar datos</button>
+          <pre id="data-output">Todavía no hay datos para inspeccionar.</pre>
+          <p class="notice">No existe todavía un backend de base de datos conectado. Esta herramienta analiza documentos locales.</p>
+        </article>
+      </section>
+
+      <!-- NETWORK INSPECTOR -->
+      <section class="page" id="page-network">
+        <div class="page-heading"><div><p class="eyebrow">NETWORK</p><h1>Bacus Network Inspector</h1><p class="muted">Diagnóstico de conexión con la API.</p></div></div>
+        <article class="panel">
+          <p class="muted">Se mide desde el navegador hasta el endpoint configurado. No representa la latencia interna del servidor.</p>
+          <button class="button primary" id="network-test">Ejecutar diagnóstico</button>
+          <div class="stat-grid compact">
+            <article class="stat-card"><span class="muted">Latencia</span><strong id="network-latency">—</strong></article>
+            <article class="stat-card"><span class="muted">HTTP status</span><strong id="network-http">—</strong></article>
+            <article class="stat-card"><span class="muted">Navegador</span><strong id="network-online">—</strong></article>
+            <article class="stat-card"><span class="muted">API</span><strong id="network-api">—</strong></article>
           </div>
-          <article class="panel">
-            <span class="tag">PLANNED</span>
-            <h3>Service Manager</h3>
-            <p class="muted">
-              La administración de servicios estará disponible cuando
-              exista una API administrativa protegida.
-            </p>
-          </article>
-        </section>
+          <pre id="network-output">Ejecutá un diagnóstico para ver resultados.</pre>
+        </article>
+      </section>
 
-        <section class="page" id="page-settings">
-          <div class="page-heading">
-            <div>
-              <p class="eyebrow">CONFIGURATION</p>
-              <h1>Settings</h1>
-              <p class="muted">Configuración de la consola.</p>
-            </div>
+      <!-- MEMORY MONITOR -->
+      <section class="page" id="page-memory">
+        <div class="page-heading"><div><p class="eyebrow">RESOURCE MONITORING</p><h1>Bacus Memory Monitor</h1><p class="muted">Métricas del proceso de Bacus Dev.</p></div></div>
+        <article class="panel">
+          <button class="button primary" id="memory-refresh">Consultar métricas</button>
+          <div class="stat-grid compact">
+            <article class="stat-card"><span class="muted">RSS</span><strong id="memory-rss">—</strong></article>
+            <article class="stat-card"><span class="muted">Heap usado</span><strong id="memory-heap-used">—</strong></article>
+            <article class="stat-card"><span class="muted">Heap total</span><strong id="memory-heap-total">—</strong></article>
+            <article class="stat-card"><span class="muted">Uptime</span><strong id="memory-uptime">—</strong></article>
           </div>
-          <article class="panel">
-            <h3>API connection</h3>
-            <p class="muted">
-              La dirección del servidor se configura desde Overview.
-            </p>
-            <button class="button secondary" id="clear-url">
-              Borrar dirección guardada
-            </button>
-          </article>
-        </section>
+          <pre id="memory-output">Todavía no hay métricas.</pre>
+          <p class="notice">Estas métricas son del proceso Node.js, no de toda la RAM física de la Raspberry Pi.</p>
+        </article>
+      </section>
 
-        <section class="page" id="page-documentation">
-          <div class="page-heading">
-            <div>
-              <p class="eyebrow">RESOURCES</p>
-              <h1>Documentation</h1>
-              <p class="muted">Documentación de Bacus Dev API.</p>
-            </div>
+      <!-- CONFIG STUDIO -->
+      <section class="page" id="page-config">
+        <div class="page-heading"><div><p class="eyebrow">CONFIGURATION</p><h1>Bacus Config Studio</h1><p class="muted">Editá y validá configuraciones JSON.</p></div></div>
+        <article class="panel">
+          <label for="config-input">Configuración JSON</label>
+          <textarea id="config-input" rows="13" spellcheck="false">{
+  "service_name": "bacus-dev",
+  "log_level": "INFO",
+  "memory_policy": "adaptive"
+}</textarea>
+          <div class="button-row">
+            <button class="button primary" id="config-validate">Validar</button>
+            <button class="button secondary" id="config-format">Formatear</button>
+            <button class="button secondary" id="config-export">Exportar JSON</button>
           </div>
-          <article class="panel">
-            <h3>Available endpoints</h3>
-            <div class="endpoint"><code>GET /</code><span>Información general</span></div>
-            <div class="endpoint"><code>GET /health</code><span>Estado del servicio</span></div>
-            <div class="endpoint"><code>GET /api/v1/info</code><span>Información de versión</span></div>
-            <div class="endpoint"><code>GET /api/v1/metrics</code><span>Métricas del proceso</span></div>
-            <p class="help">
-              Estos endpoints corresponden al servidor inicial que
-              diseñamos. Deben existir y estar probados en tu versión.
-            </p>
-          </article>
-        </section>
+          <p id="config-result" class="result-line">Configuración local.</p>
+          <p class="notice">Exportar descarga un archivo para revisión. No cambia la configuración real del servidor.</p>
+        </article>
+      </section>
 
-        <footer class="footer">
-          Bacus Console · 0.1-RC1.2 · Independent infrastructure
-        </footer>
-      </div>
-    </main>
-  </div>
+      <!-- PROJECTS -->
+      <section class="page" id="page-projects">
+        <div class="page-heading"><div><p class="eyebrow">DEVELOPMENT</p><h1>Projects</h1></div></div>
+        <article class="panel"><span class="tag">BACKEND PENDING</span><h3>Gestión de proyectos</h3><p class="muted">Necesita autenticación, almacenamiento y aislamiento multiusuario.</p></article>
+      </section>
+
+      <!-- API KEYS -->
+      <section class="page" id="page-keys">
+        <div class="page-heading"><div><p class="eyebrow">SECURITY</p><h1>API Keys</h1></div></div>
+        <article class="panel"><span class="tag">BACKEND PENDING</span><h3>Administración de claves</h3><p class="muted">La generación, revocación y validación de claves debe ocurrir en el servidor.</p></article>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="page" id="page-settings">
+        <div class="page-heading"><div><p class="eyebrow">CONFIGURATION</p><h1>Settings</h1></div></div>
+        <article class="panel">
+          <h3>Conexión de API</h3>
+          <p class="muted">La URL se configura en Overview.</p>
+          <button class="button secondary" id="clear-url">Borrar dirección guardada</button>
+        </article>
+      </section>
+
+      <!-- DOCUMENTATION -->
+      <section class="page" id="page-documentation">
+        <div class="page-heading"><div><p class="eyebrow">RESOURCES</p><h1>Documentation</h1></div></div>
+        <article class="panel">
+          <h3>Endpoints iniciales</h3>
+          <div class="endpoint"><code>GET /</code><span>Información general</span></div>
+          <div class="endpoint"><code>GET /health</code><span>Estado del servicio</span></div>
+          <div class="endpoint"><code>GET /api/v1/info</code><span>Información de versión</span></div>
+          <div class="endpoint"><code>GET /api/v1/metrics</code><span>Métricas del proceso</span></div>
+          <p class="help">Las rutas adicionales deben implementarse en el backend antes de poder utilizarlas.</p>
+        </article>
+      </section>
+
+      <footer class="footer">Bacus Console · 0.1-RC1.2 · Independent infrastructure</footer>
+    </div>
+  </main>
+</div>
 </body>
 </html>
