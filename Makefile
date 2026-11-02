@@ -1,21 +1,29 @@
 
 CC = gcc
 CFLAGS = -std=c11 -Wall -Wextra -Wpedantic -O2
-INCLUDES = -Iinclude
+CPPFLAGS = -Iinclude
 
 TARGET = build/bacus-core
-SOURCE = foundation/core/main.c
 
-.PHONY: all clean run
+SOURCES = \
+	foundation/core/main.c \
+	foundation/core/diagnostics.c \
+	foundation/config/config.c \
+	foundation/log/log.c
+
+.PHONY: all clean run diagnostics
 
 all: $(TARGET)
 
-$(TARGET): $(SOURCE) include/bacus/version.h
+$(TARGET): $(SOURCES)
 	mkdir -p build
-	$(CC) $(CFLAGS) $(INCLUDES) $(SOURCE) -o $(TARGET)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(SOURCES) -o $(TARGET)
 
-run: all
+run: $(TARGET)
 	./$(TARGET)
+
+diagnostics: $(TARGET)
+	./$(TARGET) --diagnostics
 
 clean:
 	rm -rf build
