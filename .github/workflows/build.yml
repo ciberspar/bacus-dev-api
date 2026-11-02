@@ -1,5 +1,5 @@
 
-name: Bacus Dev Build
+name: Bacus Dev Multi-Architecture Build
 
 on:
   push:
@@ -7,9 +7,37 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   build:
+    name: Build ${{ matrix.target }}
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: linux-x86
+            compiler: gcc
+            flags: "-m32"
+            packages: "gcc-multilib"
+
+          - target: linux-x86_64
+            compiler: gcc
+            flags: ""
+            packages: "gcc"
+
+          - target: linux-arm64
+            compiler: aarch64-linux-gnu-gcc
+            flags: ""
+            packages: "gcc-aarch64-linux-gnu"
+
+          - target: linux-armv6
+            compiler: arm-linux-gnueabi-gcc
+            flags: "-static -march=armv6 -marm -mfloat-abi=soft"
+            packages: "gcc-arm-linux-gnueabi"
 
     steps:
       - name: Checkout
@@ -18,10 +46,24 @@ jobs:
       - name: Install compiler
         run: |
           sudo apt-get update
-          sudo apt-get install -y gcc make
+          sudo apt-get install -y ${{ matrix.packages }}
 
-      - name: Compile Bacus Core
-        run: make
+      - name: Compile
+        run: |
+          mkdir -p build
+          ${{ matrix.compiler }} \
+            -std=c11 -Wall -Wextra -Wpedantic -O2 \
+            ${{ matrix.flags }} \
+            -Iinclude \
+            foundation/core/main.c \
+            -o build/bacus-core-${{ matrix.target }}
 
-      - name: Test execution
-        run: ./build/bacus-core
+      - name: Inspect executable
+        run: file build/bacus-core-${{ matrix.target }}
+
+      - name: Upload binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: bacus-dev-${{ matrix.target }}
+          path: build/bacus-core-${{ matrix.target }}
+          if-no-files-found: error
