@@ -4,7 +4,7 @@
 
 # [0.1-RC1] - 2026-11-02
 
-##Added
+## Added
 
 * Initial Adaptive Core release candidate.
 * Adaptive Memory Manager.
