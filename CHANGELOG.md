@@ -1,10 +1,10 @@
-Changelog
+# Changelog
 
-All notable changes to Bacus Dev are documented here.
+* All notable changes to Bacus Dev are documented here.
 
-[0.1-RC1] - 2026-11-02
+# [0.1-RC1] - 2026-11-02
 
-Added
+##Added
 
 * Initial Adaptive Core release candidate.
 * Adaptive Memory Manager.
@@ -22,7 +22,7 @@ Added
 * Memory manager diagnostics.
 * Memory allocation and release tests.
 
-Improved
+## Improved
 
 * Core initialization sequence.
 * Resource handling.
@@ -30,14 +30,14 @@ Improved
 * Project documentation.
 * Multi-architecture build workflow.
 
-Build Targets
+## Build Targets
 
 * Linux x86 (32-bit).
 * Linux x86_64 (64-bit).
 * Linux ARMv6 (32-bit).
 * Linux ARM64 (64-bit).
 
-Known Limitations
+## Known Limitations
 
 * Memory Manager is currently single-threaded.
 * Adaptive pressure transitions are not fully implemented.
@@ -48,9 +48,9 @@ Known Limitations
 
 ⸻
 
-[0.1-beta2] - 2026-11-01
+# [0.1-beta2] - 2026-11-01
 
-Added
+## Added
 
 * Centralized configuration system.
 * File-based logging.
@@ -68,14 +68,14 @@ Added
     * --config
 * Multi-architecture build pipeline.
 
-Improved
+## Improved
 
 * Modular C core.
 * Configuration validation.
 * Build organization.
 * Development structure.
 
-Known Limitations
+## Known Limitations
 
 * No HTTP server integrated into the C core.
 * No authentication system.
@@ -85,9 +85,9 @@ Known Limitations
 
 ⸻
 
-[0.1-beta1] - 2026-11-01
+# [0.1-beta1] - 2026-11-01
 
-Added
+## Added
 
 * Initial Bacus Dev foundation.
 * C-based core entry point.
@@ -97,20 +97,20 @@ Added
 * GitHub automated build workflow.
 * Initial compilation tests.
 
-Build Targets
+## Build Targets
 
 * Linux x86 (32-bit).
 * Linux x86_64 (64-bit).
 * Linux ARMv6 (32-bit).
 * Linux ARM64 (64-bit).
 
-Development
+## Development
 
 * Portable C foundation.
 * Initial multi-architecture compilation.
 * No external backend dependencies.
 
-Known Limitations
+## Known Limitations
 
 * No HTTP API.
 * No authentication.
@@ -119,18 +119,18 @@ Known Limitations
 
 ⸻
 
-Version History
+## Version History
 
 Version	Codename	Stage
 0.1-beta1	Foundation	Beta
 0.1-beta2	Core Upgrade	Beta
 0.1-RC1	Adaptive Core	Release Candidate
 
-Project Philosophy
+## Project Philosophy
 
 Bacus Dev aims to provide modular, resource-efficient and independent infrastructure tools for developers and self-hosted environments.
 
-The project prioritizes:
+## The project prioritizes:
 
 * Open standards.
 * Hardware adaptability.
